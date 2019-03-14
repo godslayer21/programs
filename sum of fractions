@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct f
+{
+    int a;
+    int b;
+};
+
+struct f one(struct f s1,struct f s2,struct f *q)
+{
+    if(s1.a==0&&s1.b==0||s2.a==0&&s2.b==0 )
+    {
+	 printf("\n result is undeterminable");
+	 exit(0);
+     }
+    else  if(s1.a==0||s2.a==0)
+     {
+	   if(s1.a==0)
+	   {
+	      q->a=s2.a;
+	      q->b=s2.b;
+
+	    }
+	   else
+	   {
+	      q->a=s1.a;
+	      q->b=s1.b;
+
+	   }
+
+      }
+     else if((s1.b==0)||(s2.b==0))
+     {    printf("\n result is undefined/infinity");
+	  exit(0);
+      }
+
+
+     else
+      {   q->a=(s1.a*s2.b)+(s2.a*s1.b);
+	  q->b=s1.b*s2.b;
+
+       }
+       
+}
+struct f input(struct f *s1,struct f *s2)
+{      struct f r,d;
+       printf("\n enter the values of 4 numbers:\n");
+       scanf("%d%d%d%d",&r.a,&r.b,&d.a,&d.b);;
+       *s1=r;
+       *s2=d;
+    
+}
+void main()
+{  struct f r,s1,s2;
+   
+   input(&s1,&s2);
+   one(s1,s2,&r);
+   printf("\n %d/%d+%d/%d=%d/%d",s1.a,s1.b,s2.a,s2.b,r.a,r.b);
+}
