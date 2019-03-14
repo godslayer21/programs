@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct f
+{
+    double a;
+    double b;
+};
+
+struct f input(struct f *s1,struct f *s2)
+{      struct f r,d;
+       printf("\n enter the values of 4 numbers:\n");
+       scanf("%lf%lf%lf%lf",&r.a,&r.b,&d.a,&d.b);;
+       *s1=r;
+       *s2=d;
+    
+}
+struct f add(struct f r,struct f d,struct f *res)
+{      
+       
+       res->a=r.a+d.a;
+       res->b=r.b+d.b;
+       
+    
+}
+void main()
+{  struct f r,s1,s2;
+   
+   input(&s1,&s2);
+
+   add(s1,s2,&r);
+   printf("\n (%.2fl+%.2fli)+(%.2f1+%.2fli)=(%.2f1+%.2fli)",s1.a,s1.b,s2.a,s2.b,r.a,r.b);
+}
